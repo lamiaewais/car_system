@@ -1,6 +1,5 @@
 package com.udacity.vehicles.api;
 
-
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 import com.udacity.vehicles.domain.car.Car;
@@ -83,7 +82,7 @@ class CarController {
     @PutMapping("/{id}")
     ResponseEntity<?> put(@PathVariable Long id, @Valid @RequestBody Car car) {
         car.setId(id);
-        Car  savedCar = carService.save(car);
+        Car savedCar = carService.save(car);
         Resource<Car> resource = assembler.toResource(savedCar);
         return ResponseEntity.ok(resource);
     }
