@@ -78,7 +78,7 @@ public class VehiclesApiApplication {
         List<InstanceInfo> instances = application.getInstances();
         return WebClient
                 .builder()
-                .baseUrl(instances.get(0).getHomePageUrl())
+                .baseUrl(instances.get(0).getHomePageUrl() + "/" + endpoint)
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }

@@ -1,15 +1,20 @@
 package com.udacity.pricing.domain.price;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
  * Represents the price of a given vehicle, including currency.
  */
+@Entity
 public class Price {
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @Column(name = "vehicleId")
+    private Long vehicleId;
     private String currency;
     private BigDecimal price;
-    private Long vehicleId;
 
     public Price() {
     }
